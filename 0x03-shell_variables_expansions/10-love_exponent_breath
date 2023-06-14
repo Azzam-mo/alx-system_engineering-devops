@@ -1,2 +1,13 @@
 #!/bin/bash
-echo $(($BREATH ** $LOVE))
+
+# Vérifie si les variables d'environnement BREATH et LOVE sont définies
+if [[ -z "$BREATH" || -z "$LOVE" ]]; then
+  echo "Les variables d'environnement BREATH et LOVE ne sont pas définies."
+  exit 1
+fi
+
+# Calcule le résultat
+result=$(echo "$BREATH^$LOVE" | bc)
+
+# Affiche le résultat
+echo "$result"
